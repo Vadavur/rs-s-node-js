@@ -19,18 +19,18 @@ const setInputOutputArgsAndStatus = (
       inputOutputArgsTemplates.outputArg
     )
   ) {
-    parsedUserArgsAndStatus.outputArg.arg =
+    parsedUserArgsAndStatus.outputArg.value =
       notMandatoryUserArgs[2];
-    parsedUserArgsAndStatus.outputFileName.arg =
+    parsedUserArgsAndStatus.outputFileName.value =
       notMandatoryUserArgs[3] || "";
     if (
       notMandatoryUserArgs[0].match(
         inputOutputArgsTemplates.inputArg
       )
     ) {
-      parsedUserArgsAndStatus.inputArg.arg =
+      parsedUserArgsAndStatus.inputArg.value =
         notMandatoryUserArgs[0];
-      parsedUserArgsAndStatus.inputFileName.arg =
+      parsedUserArgsAndStatus.inputFileName.value =
         notMandatoryUserArgs[1] || "";
     }
   } else {
@@ -39,9 +39,9 @@ const setInputOutputArgsAndStatus = (
         inputOutputArgsTemplates.outputArg
       )
     ) {
-      parsedUserArgsAndStatus.outputArg.arg =
+      parsedUserArgsAndStatus.outputArg.value =
         notMandatoryUserArgs[1];
-      parsedUserArgsAndStatus.outputFileName.arg =
+      parsedUserArgsAndStatus.outputFileName.value =
         notMandatoryUserArgs[2] || "";
     } else {
       if (
@@ -49,9 +49,9 @@ const setInputOutputArgsAndStatus = (
           inputOutputArgsTemplates.outputArg
         )
       ) {
-        parsedUserArgsAndStatus.outputArg.arg =
+        parsedUserArgsAndStatus.outputArg.value =
           notMandatoryUserArgs[0];
-        parsedUserArgsAndStatus.outputFileName.arg =
+        parsedUserArgsAndStatus.outputFileName.value =
           notMandatoryUserArgs[1] || "";
       } else {
         if (
@@ -59,9 +59,9 @@ const setInputOutputArgsAndStatus = (
             inputOutputArgsTemplates.inputArg
           )
         ) {
-          parsedUserArgsAndStatus.inputArg.arg =
+          parsedUserArgsAndStatus.inputArg.value =
             notMandatoryUserArgs[0];
-          parsedUserArgsAndStatus.inputFileName.arg =
+          parsedUserArgsAndStatus.inputFileName.value =
             notMandatoryUserArgs[1] || "";
         }
       }
@@ -74,7 +74,7 @@ const setInputOutputArgsAndStatus = (
   );
 
   inputOutputArgsKeys.forEach((key) => {
-    if (parsedUserArgsAndStatus[key]["arg"]) {
+    if (parsedUserArgsAndStatus[key]["value"]) {
       parsedUserArgsAndStatus[key].status = "ok";
     }
   });

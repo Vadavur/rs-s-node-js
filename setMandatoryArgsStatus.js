@@ -23,7 +23,7 @@ const setMandatoryArgsStatus = (parsedUserArgsAndStatus) => {
 
   for (let key in mandatoryArgsTemplatesAndErrors) {
     if (
-      !parsedUserArgsAndStatus[key]["arg"].match(
+      !parsedUserArgsAndStatus[key]["value"].match(
         mandatoryArgsTemplatesAndErrors[key]["regexp"]
       )
     ) {

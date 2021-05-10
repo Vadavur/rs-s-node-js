@@ -9,20 +9,20 @@ async function checkForFilePathErrors(parsedUserCommand) {
 
   if (inputFilePath.status === "ok") {
     try {
-      await promises.access(inputFilePath.arg, constants.R_OK);
+      await promises.access(inputFilePath.value, constants.R_OK);
     } catch {
       filePathErrors.push(
-        `Error: the input file ${inputFilePath.arg} is not accessible!`
+        `Error: the input file ${inputFilePath.value} is not accessible!`
       );
     }
   }
 
   if (outputFilePath.status === "ok") {
     try {
-      await promises.access(outputFilePath.arg, constants.R_OK);
+      await promises.access(outputFilePath.value, constants.R_OK);
     } catch {
       filePathErrors.push(
-        `Error: the output file ${outputFilePath.arg} is not accessible!`
+        `Error: the output file ${outputFilePath.value} is not accessible!`
       );
     }
   }

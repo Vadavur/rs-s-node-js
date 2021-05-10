@@ -4,10 +4,12 @@ import { checkForFilePathErrors } from "./checkForFilePathErrors.js";
 import { MandatoryError } from "./MandatoryError.js";
 import { FilePathError } from "./FilePathError.js";
 
-class CaesarCipher {
+class CaesarCipherer {
   constructor(initialUserRequest) {
     this.initialUserCommand = initialUserRequest.slice(2);
     this.parsedUserCommand = getArgsAndStatus(this.initialUserCommand);
+    this.inputText = "";
+    this.outputText = "";
   }
 
   checkForErrors() {
@@ -23,12 +25,25 @@ class CaesarCipher {
       }
     }
   }
+
+  getInputText() {
+    if (this.parsedUserCommand.inputFileName.status === "ok") {
+      this.inputText = getTextFromFile(
+        this.parsedUserCommand.inputFileName.value
+      );
+    } else {
+      this.inputText = getTextFromUser();
+    }
+  }
+
+  getOutputText() {}
+
+  sendOutputText() {}
 }
 
-const cipher = new CaesarCipher(process.argv);
+const cipher = new CaesarCipherer(process.argv);
 
 cipher.checkForErrors();
-
 
 // const inputText = getInputText(parsedUserCommand);
 
