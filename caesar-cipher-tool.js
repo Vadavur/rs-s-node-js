@@ -4,21 +4,35 @@ import { checkForFilePathErrors } from "./checkForFilePathErrors.js";
 import { MandatoryError } from "./MandatoryError.js";
 import { FilePathError } from "./FilePathError.js";
 
-const initialUserCommand = process.argv.slice(2);
-
-const parsedUserCommand = getArgsAndStatus(initialUserCommand);
-
-try {
-  checkForMandatoryArgsErrors(parsedUserCommand);
-  checkForFilePathErrors(parsedUserCommand);
-} catch (error) {
-  if (error instanceof MandatoryError) {
-    error.message;
+class CaesarCipher {
+  constructor(initialUserRequest) {
+    this.initialUserCommand = initialUserRequest.slice(2);
+    this.parsedUserCommand = getArgsAndStatus(this.initialUserCommand);
   }
-  if (error instanceof FilePathError) {
-    error.message;
+
+  checkForErrors() {
+    try {
+      checkForMandatoryArgsErrors(this.parsedUserCommand);
+      checkForFilePathErrors(this.parsedUserCommand);
+    } catch (error) {
+      if (error instanceof MandatoryError) {
+        error.message;
+      }
+      if (error instanceof FilePathError) {
+        error.message;
+      }
+    }
   }
 }
+
+const cipher = new CaesarCipher(process.argv);
+
+cipher.checkForErrors();
+
+
+// const inputText = getInputText(parsedUserCommand);
+
+// const outputText = getOutputText(parsedUserCommand);
 
 // console.log(parsedUserCommand);
 
