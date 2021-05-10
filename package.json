@@ -20,5 +20,6 @@
     "fs": "*",
     "promises": "*"
   },
-  "homepage": "https://github.com/Vadavur/rs-s-node-js#readme"
+  "homepage": "https://github.com/Vadavur/rs-s-node-js#readme",
+  "devDependencies": {}
 }

@@ -1,21 +1,23 @@
-import { getArgsAndStatus } from "./getArgsAndStatus.js";
+import { getArgsNamesAndValues } from "./getArgsNamesAndValues.js";
 import { checkForMandatoryArgsErrors } from "./checkForMandatoryArgsErrors.js";
 import { checkForFilePathErrors } from "./checkForFilePathErrors.js";
 import { MandatoryError } from "./MandatoryError.js";
 import { FilePathError } from "./FilePathError.js";
+import { getTextFromFile } from "./getTextFromFile.js";
+import { getTextFromUser } from "./getTextFromUser.js";
 
 class CaesarCipherer {
-  constructor(initialUserRequest) {
-    this.initialUserCommand = initialUserRequest.slice(2);
-    this.parsedUserCommand = getArgsAndStatus(this.initialUserCommand);
+  constructor(initialUserCommand) {
+    this.initialUserRequest = initialUserCommand.slice(2);
+    this.parsedUserRequest = getArgsNamesAndValues(this.initialUserRequest);
     this.inputText = "";
     this.outputText = "";
   }
 
   checkForErrors() {
     try {
-      checkForMandatoryArgsErrors(this.parsedUserCommand);
-      checkForFilePathErrors(this.parsedUserCommand);
+      checkForMandatoryArgsErrors(this.parsedUserRequest);
+      checkForFilePathErrors(this.parsedUserRequest);
     } catch (error) {
       if (error instanceof MandatoryError) {
         error.message;
@@ -27,16 +29,18 @@ class CaesarCipherer {
   }
 
   getInputText() {
-    if (this.parsedUserCommand.inputFileName.status === "ok") {
+    
+    if (this.parsedUserRequest.input.argValue.status === "ok") {
       this.inputText = getTextFromFile(
-        this.parsedUserCommand.inputFileName.value
+        this.parsedUserRequest.input.argValue.value,
+        this.inputText
       );
     } else {
-      this.inputText = getTextFromUser();
+      this.inputText = getTextFromUser(this.parsedUserRequest.action.argValue.value);
     }
   }
 
-  getOutputText() {}
+  makeCipherMagic() {}
 
   sendOutputText() {}
 }
@@ -45,11 +49,14 @@ const cipher = new CaesarCipherer(process.argv);
 
 cipher.checkForErrors();
 
-// const inputText = getInputText(parsedUserCommand);
+cipher.getInputText();
 
-// const outputText = getOutputText(parsedUserCommand);
 
-// console.log(parsedUserCommand);
+// const inputText = getInputText(parsedUserRequest);
+
+// const outputText = getOutputText(parsedUserRequest);
+
+// console.log(parsedUserRequest);
 
 // const readline = require("readline").createInterface({
 //   input: process.stdin,

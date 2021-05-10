@@ -1,12 +1,14 @@
 import { MandatoryError } from "./MandatoryError.js";
 
-const checkForMandatoryArgsErrors = (parsedUserCommand) => {
+const checkForMandatoryArgsErrors = (parsedUserRequest) => {
   const mandatoryArgsErrors = [];
-  const mandatoryKeys = Object.keys(parsedUserCommand).slice(0, 4);
-  mandatoryKeys.forEach((key) => {
-    if (parsedUserCommand[key]["status"] !== "ok") {
-      const errorMessage = `${parsedUserCommand[key]["status"]} Current value is '${parsedUserCommand[key]["value"]}'.`;
-      mandatoryArgsErrors.push(errorMessage);
+
+  const mandatoryArgs = Object.keys(parsedUserRequest).slice(0, 2);
+  mandatoryArgs.forEach((arg) => {
+    if (parsedUserRequest[arg]["argName"]["status"] !== "ok") {
+      mandatoryArgsErrors.push(parsedUserRequest[arg]["argName"]["status"]);
+    } else if (parsedUserRequest[arg]["argValue"]["status"] !== "ok") {
+      mandatoryArgsErrors.push(parsedUserRequest[arg]["argValue"]["status"]);
     }
   });
 
