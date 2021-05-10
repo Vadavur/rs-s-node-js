@@ -1,3 +1,24 @@
 {
-  "type": "module"
+  "type": "module",
+  "name": "npm",
+  "description": "1. Description",
+  "version": "1.0.0",
+  "main": "FilePathError.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vadavur/rs-s-node-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vadavur/rs-s-node-js/issues"
+  },
+  "dependencies": {
+    "fs": "*",
+    "promises": "*"
+  },
+  "homepage": "https://github.com/Vadavur/rs-s-node-js#readme"
 }

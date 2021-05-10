@@ -1,4 +1,4 @@
-import { MandatoryError } from "./mandatoryError.js";
+import { MandatoryError } from "./MandatoryError.js";
 
 const checkForMandatoryArgsErrors = (parsedUserCommand) => {
   const mandatoryArgsErrors = [];
@@ -9,7 +9,7 @@ const checkForMandatoryArgsErrors = (parsedUserCommand) => {
       mandatoryArgsErrors.push(errorMessage);
     }
   });
-  
+
   if (mandatoryArgsErrors.length !== 0) {
     MandatoryError.prototype = Object.create(Error.prototype);
     throw new MandatoryError(mandatoryArgsErrors);

@@ -3,21 +3,21 @@ const setMandatoryArgsStatus = (parsedUserArgsAndStatus) => {
     actionArg: {
       regexp: new RegExp("^-a$|^--action$"),
       errorStatus:
-        "Error, missing or misplaced action command - should be '-a' or '--action'.",
+        "Error: wrong, missing or misplaced action command - should be '-a' or '--action'.",
     },
     actionName: {
       regexp: new RegExp("^encode$|^decode$"),
       errorStatus:
-        "Error, missing or misplaced action name - should be 'encode' or 'decode'.",
+        "Error: wrong, missing or misplaced action name - should be 'encode' or 'decode'.",
     },
     shiftArg: {
       regexp: new RegExp("^-s$|^-`-shift$"),
       errorStatus:
-        "Error, missing or misplaced shift command - should be '-s' or '--shift'.",
+        "Error: wrong, missing or misplaced shift command - should be '-s' or '--shift'.",
     },
     shiftValue: {
       regexp: new RegExp("^-\\d+$|^\\d+$"),
-      errorStatus: "Error, missing or misplaced shift value - should be an integer number.",
+      errorStatus: "Error: wrong, missing or misplaced shift value - should be an integer number.",
     },
   };
 

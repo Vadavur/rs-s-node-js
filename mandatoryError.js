@@ -1,5 +1,5 @@
 function MandatoryError(mandatoryArgsErrors) {
-  this.name = "PropertyError";
+  this.name = "MandatoryError";
 
   this.errors = mandatoryArgsErrors;
   this.message = mandatoryArgsErrors.forEach((errora) => {
@@ -13,5 +13,4 @@ function MandatoryError(mandatoryArgsErrors) {
   }
 }
 
-
-export {MandatoryError}
+export { MandatoryError };
