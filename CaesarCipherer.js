@@ -1,9 +1,9 @@
 import { getArgsNamesAndValues } from "./getArgsNamesAndValues.js";
 import { checkForMandatoryArgsErrors } from "./checkForMandatoryArgsErrors.js";
 import { checkForFilePathErrors } from "./checkForFilePathErrors.js";
-
 import { getTextFromFile } from "./getTextFromFile.js";
 import { getTextFromUser } from "./getTextFromUser.js";
+import { getCipherizedText } from "./getCipherizedText.js";
 import { writeTextToFile } from "./writeTextToFile.js";
 import { writeTextToUser } from "./writeTextToUser.js";
 
@@ -39,8 +39,8 @@ export default class CaesarCipherer {
   makeCipherMagic() {
     const text = this.inputText;
     const action = this.parsedUserRequest.action.argValue.value;
-    const shift = this.parsedUserRequest.shift.argValue.value;
-    this.outputText = text + "LAST";
+    const shift = parseInt(this.parsedUserRequest.shift.argValue.value, 10);
+    this.outputText = getCipherizedText(text, action, shift);
   }
 
   async writeOutputText() {
@@ -61,4 +61,3 @@ export default class CaesarCipherer {
     }
   }
 }
-

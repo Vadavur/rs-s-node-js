@@ -5,7 +5,7 @@ async function getTextFromUser(action) {
     input: process.stdin,
     output: process.stdout,
   });
-  console.log(`Put the text to ${action} below`);
+  console.log(`No input file was set!\nPlease, type the text to ${action} below:`);
   for await (const line of readline) {
     readline.close();
     return line;
@@ -13,8 +13,3 @@ async function getTextFromUser(action) {
 }
 
 export { getTextFromUser };
-
-// readline.question(`Put the text to ${action} below\n`, (text) => {
-//   outputText = text;
-//   readline.close();
-// });

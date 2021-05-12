@@ -14,7 +14,7 @@ To install this application, you should perform next steps:
 3. Manual
 
 After installation you should type following command in the command line in the application folder:
-"node caesar-cipher-tool [options]", where options are the parameters followed by values. These parameters are listed below (short alias and full name) with the description of their values after a colon:
+"node cct-app [options]", where options are the parameters followed by values. These parameters are listed below (short alias and full name) with the description of their values after a colon:
 
 -a, --action: "encode" or "decode" (without double quotes) - depends on what you want to do with the text
 -s, --shift: an integer number (-2, 14, 1212 etc) - it would be like the key for the cipher 

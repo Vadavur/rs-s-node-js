@@ -7,7 +7,7 @@ function MandatoryArgError(mandatoryArgsErrors) {
   });
 
   if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, MandatoryError);
+    Error.captureStackTrace(this, MandatoryArgError);
   } else {
     this.stack = new Error().stack;
   }
