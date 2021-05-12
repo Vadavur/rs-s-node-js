@@ -1,15 +1,20 @@
 import { createInterface } from "readline";
 
-function getTextFromUser(action) {
+async function getTextFromUser(action) {
   const readline = createInterface({
     input: process.stdin,
     output: process.stdout,
   });
-
-  readline.question(`Put the text to ${action} below\n`, (text) => {
+  console.log(`Put the text to ${action} below`);
+  for await (const line of readline) {
     readline.close();
-    console.log(`${text}`);
-  });
+    return line;
+  }
 }
 
 export { getTextFromUser };
+
+// readline.question(`Put the text to ${action} below\n`, (text) => {
+//   outputText = text;
+//   readline.close();
+// });

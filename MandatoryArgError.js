@@ -1,4 +1,4 @@
-function MandatoryError(mandatoryArgsErrors) {
+function MandatoryArgError(mandatoryArgsErrors) {
   this.name = "MandatoryError";
 
   this.errors = mandatoryArgsErrors;
@@ -13,4 +13,4 @@ function MandatoryError(mandatoryArgsErrors) {
   }
 }
 
-export { MandatoryError };
+export { MandatoryArgError };

@@ -25,7 +25,7 @@ const setArgsNamesAndValues = (
     const nextValue = initialUserRequest[index + 1];
     for (let arg in argsTemplates) {
       const argTemplate = argsTemplates[arg];
-      if (currentValue.match(argTemplate["argName"]) && !isArgName(nextValue)) {
+      if (nextValue !== undefined && currentValue.match(argTemplate["argName"]) && !isArgName(nextValue)) {
         const currentArg = parsedUserArgsNamesAndValues[arg];
         currentArg["argName"]["value"] = currentValue;
         currentArg["argName"]["status"] = "ok";
